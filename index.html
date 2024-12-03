@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Support Ticketing System By GrowUp 2x.com</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Customer Support Ticketing System By GrowUp 2x.com</h1>
+
+    <!-- Ticket Form -->
+    <div class="ticket-form">
+      <h2>Create a New Ticket</h2>
+      <input type="text" id="ticketName" placeholder="Your Name" required>
+      <input type="email" id="ticketEmail" placeholder="Your Email" required>
+      <textarea id="ticketIssue" placeholder="Describe your issue..." required></textarea>
+      <select id="ticketPriority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <button onclick="createTicket()">Submit Ticket</button>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <h2>Filter Tickets</h2>
+      <select id="ticketFilter" onchange="filterTickets()">
+        <option value="">All Tickets</option>
+        <option value="high">High Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="low">Low Priority</option>
+      </select>
+    </div>
+
+    <!-- Ticket Sections -->
+    <div class="ticket-section">
+      <h2>Open Tickets</h2>
+      <div id="openTicketList" class="ticket-list"></div>
+    </div>
+
+    <div class="ticket-section">
+      <h2>Resolved Tickets</h2>
+      <div id="resolvedTicketList" class="ticket-list"></div>
+    </div>
+
+    <!-- Admin Panel with Chart -->
+    <div class="admin-panel">
+      <h2>Admin Panel - Manage Tickets</h2>
+      <div class="admin-actions">
+        <button class="resolve-all" onclick="resolveAllOpenTickets()">Resolve All Open Tickets</button>
+        <button class="delete-all" onclick="deleteAllResolvedTickets()">Delete All Resolved Tickets</button>
+      </div>
+
+      <div class="ticket-chart">
+        <canvas id="ticketChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat-section">
+      <h2>Customer Support Chat</h2>
+      <div id="chatContainer" class="chat-container"></div>
+      <textarea id="chatMessage" placeholder="Type your message..."></textarea>
+      <button onclick="sendChatMessage()">Send</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
